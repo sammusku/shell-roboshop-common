@@ -2,6 +2,7 @@
 source ./common.sh
 
 check_root
+app_name=frontend
 app_setup
 
 dnf module disable nginx -y 
