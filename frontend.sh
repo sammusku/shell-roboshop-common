@@ -25,5 +25,7 @@ VALIDATE $? "unzip frontend data"
 cp $SCRIPT_DIR/nginx.conf /etc/nginx/nginx.conf  &>>$LOGS_FILE
 VALIDATE $? "copying nginx configure data"
 
-app_restart
+systemctl restart nginx  &>>$LOGS_FILE
+VALIDATE $? "restarting nginx"
+
 print_total_time
