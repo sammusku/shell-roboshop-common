@@ -1,5 +1,5 @@
 #!/bin/bash
-souce ./common.sh
+source ./common.sh
 
 check_root
 app_setup
