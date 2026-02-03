@@ -92,6 +92,7 @@ java_setup(){
     dnf install maven -y   &>>$LOGS_FILE
    VALIDATE $? "installing maven"
 
+   cd /app 
    mvn clean package &>>$LOGS_FILE
    VALIDATE $? "install and build java dependencies"
 
