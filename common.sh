@@ -9,9 +9,10 @@
  N="\e[0m"
 START_TIME=$(date +%s)
 
+mkdir -p $LOGS_FOLDER
+
  echo "$(date "+%y-%m-%d %H:%M:%S") | script started executing at:$(date)" | tee -a $LOGS_FILE
 
-mkdir -p $LOGS_FOLDER
 
 check_root(){
         if [ $USER_ID -ne 0 ]; then
@@ -25,7 +26,7 @@ VALIDATE() {
        echo -e $(date "+%y-%m-%d %H:%M:%S") | "$Y $2 $N----- $R failure $N" | tee -a $LOGS_FILE
        exit 1
     else
-       echo -e $(date "+%y-%m-%d %H:%M:%S") | "$Y $2 $N------$G success $N " | tee -a $LOGS_FILE
+       echo -e $(date "+%y-%m-%d %H:%M:%S") | "$Y $2 $N------$G success $N" | tee -a $LOGS_FILE
     fi
 }
 
