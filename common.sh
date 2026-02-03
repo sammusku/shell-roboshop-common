@@ -88,6 +88,16 @@ systemd_setup(){
     systemctl start $app_name &>>$LOGS_FILE
     VALIDATE $? "start $app_name server"
 }
+java_setup(){
+    dnf install maven -y   &>>$LOGS_FILE
+   VALIDATE $? "installing maven"
+
+   mvn clean package &>>$LOGS_FILE
+   VALIDATE $? "install and build java dependencies"
+
+    mv target/$app_name-1.0.jar $app_name.jar 
+    VALIDATE $? "moving and remaning $app_name"
+}
 
 app_restart(){
     systemctl restart $app_name &>>$LOGS_FILE
