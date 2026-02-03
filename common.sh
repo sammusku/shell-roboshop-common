@@ -1,7 +1,7 @@
 #!/bin/bash
  USER_ID=$(id -u)
 
- LOGS_FOLDER="/var/log/shell-roboshop"
+ LOGS_FOLDER="/var/log/shell-roboshop-common"
  LOGS_FILE="$LOGS_FOLDER/$0.log"
  R="\e[31m"
  G="\e[32m"
@@ -31,7 +31,7 @@ VALIDATE() {
 
 print_total_time(){
      END_TIME=$(date +%s)
-     TOTAL_TIME=(( $END_TIME - $START_TIME ))
-     echo -e $(date "+%y-%m-%d %H:%M:%S") | script executed in :$G $TOTAL_TIME in seconds $N |tee -a $LOGS_FILE
+     TOTAL_TIME=$(( $END_TIME - $START_TIME ))
+     echo -e $(date "+%y-%m-%d %H:%M:%S") | script executed in :$G $TOTAL_TIME in seconds $N | tee -a $LOGS_FILE
 }
 
