@@ -10,7 +10,7 @@
 START_TIME=$(date +%s)
 SCRIPT_DIR=$PWD
 MONGODB_HOST="mongodb.dev88s.online"
-MYSQL_HOST=mysql.dev88s.online
+MYSQL_HOST="mysql.dev88s.online"
 
 mkdir -p $LOGS_FOLDER
 
