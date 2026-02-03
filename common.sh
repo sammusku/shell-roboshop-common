@@ -36,7 +36,7 @@ id roboshop &>>$LOGS_FILE
 if [ $? -ne 0 ]; then
    useradd --system --home /app --shell /sbin/nologin --comment "roboshop system user" roboshop
    VALIDATE $? "Creating system user"
-   echo " $G Created the roboshop user $N "
+   echo -e " $G Created the roboshop user $N "
 else
    echo -e " roboshop user already exist in the system..$Y skipping $N "
 fi
@@ -89,8 +89,8 @@ systemd_setup(){
 }
 
 app_restart(){
-    systemctl restart catalogue &>>$LOGS_FILE
-    VALIDATE $? "restarting the catalogue"
+    systemctl restart $app_name &>>$LOGS_FILE
+    VALIDATE $? "restarting $app_name"
 }
 print_total_time(){
      END_TIME=$(date +%s)
