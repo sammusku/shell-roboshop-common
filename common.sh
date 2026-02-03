@@ -99,6 +99,13 @@ java_setup(){
     mv target/$app_name-1.0.jar $app_name.jar 
     VALIDATE $? "moving and remaning $app_name"
 }
+python_setup(){
+     dnf install python3 gcc python3-devel -y
+    VALIDATE $? "installing python3"
+    cd /app
+    pip3 install -r requirements.txt &>>$LOGS_FILE
+    VALIDATE $? "install dependencies of python by requirements.txt"
+}
 
 app_restart(){
     systemctl restart $app_name &>>$LOGS_FILE
